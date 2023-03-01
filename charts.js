@@ -27,7 +27,7 @@ function optionChanged(newSample) {
   // Fetch new data each time a new sample is selected
   buildMetadata(newSample);
   buildCharts(newSample);
-  
+
 }
 
 // Demographics Panel 
@@ -37,7 +37,7 @@ function buildMetadata(sample) {
     // Filter the data for the object with the desired sample number
     var resultArray = metadata.filter(sampleObj => sampleObj.id == sample);
     var result = resultArray[0];
-   
+
     // Use d3 to select the panel with id of `#sample-metadata`
     var PANEL = d3.select("#sample-metadata");
 
@@ -61,35 +61,49 @@ function buildCharts(sample) {
     console.log(data);
 
     // Deliverable 1: 3. Create a variable that holds the samples array. 
+    var samples = data.samples
+    console.log(`This is sample data ${data}`);
 
     // Deliverable 1: 4. Create a variable that filters the samples for the object with the desired sample number.
+    var samplesID = samples.filter(a => a.id); 
+    console.log(`This is sample.id data ${samplesID}`)
 
     // Deliverable 3: 1. Create a variable that filters the metadata array for the object with the desired sample number.
+    var metaData = data.metadata
+    console.log(`This is the metadata array ${metaData}`);
 
     // Deliverable 1: 5. Create a variable that holds the first sample in the array.
+    var firstSample = samples[0]; 
+    console.log(`This is the first sample in the samples array ${firstSample}`);
 
     // Deliverable 3: 2. Create a variable that holds the first sample in the metadata array.
 
     // Deliverable 1: 6. Create variables that hold the otu_ids, otu_labels, and sample_values.
+    var otuIDs = samples.map(a=>a.otu_ids);
+    console.log(`This is the list of otu_ids ${otuIDs}`); 
+
+    var otuLabels = samples.map(a=>a.otu_labels); 
+    console.log(`This is the list of otu_labels ${otuLabels}`); 
+
+    var sampleValues = samples.map(a=> a.sample_values); 
+    console.log(`This is the list of sample_values ${sampleValues}`);
+  })
+};
 
     // Deliverable 3: 3. Create a variable that holds the washing frequency.
+  
 
-
+  
     // Deliverable 1: 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order 
     // so the otu_ids with the most bacteria are last. 
-    var yticks = 
+
 
     // Deliverable 1: 8. Create the trace for the bar chart. 
-    var barData = [
-
-    ];
+  
 
     // Deliverable 1: 9. Create the layout for the bar chart. 
-    var barLayout = {
-
-    };
-
+  
     // Deliverable 1: 10. Use Plotly to plot the data with the layout. 
 
     // Deliverable 2: 1. Create the trace for the bubble chart.
@@ -97,12 +111,10 @@ function buildCharts(sample) {
     // Deliverable 2: 2. Create the layout for the bubble chart.
 
     // Deliverable 2: 3. Use Plotly to plot the data with the layout.
-    
+
     // Deliverable 3: 4. Create the trace for the gauge chart.
-    
+
     // Deliverable 3: 5. Create the layout for the gauge chart.
 
     // Deliverable 3: 6. Use Plotly to plot the gauge data and layout.
 
-  });
-}
