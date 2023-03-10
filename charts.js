@@ -142,7 +142,8 @@ function buildCharts(sample) {
     // Deliverable 2: 2. Create the layout for the bubble chart.
     var bubbleLayout = {
       title: "Bacteria Cultures Per Sample", 
-      hovermode: "closest"
+      hovermode: "closest", 
+      yaxis: {title: "OTU ID"}
    };
 
     // Deliverable 2: 3. Use Plotly to plot the data with the layout.
@@ -150,12 +151,12 @@ function buildCharts(sample) {
 
     // Deliverable 3: 4. Create the trace for the gauge chart.
     var gaugeTrace =[{
-      domain: { x: [0,1], y: [0,1]},
+      domain: { x: [0,2], y: [0,2]},
       value: wFreq, 
       title: {text: "Scrubs per Week"}, 
       type: "indicator", 
       mode: "gauge+number", 
-      gauge: { axis: {visible: true, range: [0,7]}}
+      gauge: { axis: {visible: true, range: [0,10]}}
     }];
 
     // Deliverable 3: 5. Create the layout for the gauge chart.
